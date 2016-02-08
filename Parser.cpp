@@ -2,7 +2,7 @@
 
 Parser::Parser() {};
 
-std::vector<std::string> Parser::parse(std::string &s){
+std::vector<std::vector<std::string> > Parser::parse(std::string &s){
     std::vector<std::vector<std::string> > result;
     std::vector<std::string> tempParse;
     char * cstr = new char [s.size()+1];
@@ -33,15 +33,15 @@ std::vector<std::string> Parser::parse(std::string &s){
     }
     
     std::vector<std::string> cmdToken;
-    for(int i = 0; i < tempParse; i++){
+    for(int i = 0; i < tempParse.size(); i++){
         if(tempParse[i] != "||" && tempParse[i] != ";" && tempParse[i] != "&&")
             cmdToken.push_back(tempParse[i]);
         else{
             result.push_back(cmdToken);
             cmdToken.clear();
-            cmdToken.push_back(tempParse[i];
+            cmdToken.push_back(tempParse[i]);
             result.push_back(cmdToken);
-            cmdtoken.clear();
+            cmdToken.clear();
         }
     }
     result.push_back(cmdToken);
