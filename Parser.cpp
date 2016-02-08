@@ -3,7 +3,8 @@
 Parser::Parser() {};
 
 std::vector<std::string> Parser::parse(std::string &s){
-    std::vector<std::string> result;
+    std::vector<std::vector<std::string> > result;
+    std::vector<std::string> tempParse;
     char * cstr = new char [s.size()+1];
     std::strcpy(cstr, s.c_str());
     char * p = std::strtok(cstr, " ");
@@ -20,16 +21,30 @@ std::vector<std::string> Parser::parse(std::string &s){
         if(tmp[0] == '-'){
             //If the string is a list of flags then split them
             for(int i = 1; i < tmp.size(); i++)
-                result.push_back(std::string(1, tmp[i]));
+                tempParse.push_back(std::string(1, tmp[i]));
                 }
         else
-            result.push_back(tmp);
+            tempParse.push_back(tmp);
 
         if(continueConnect)
-            result.push_back(";");
+            tempParse.push_back(";");
 
         p = std::strtok(NULL, " ");
     }
+    
+    std::vector<std::string> cmdToken;
+    for(int i = 0; i < tempParse; i++){
+        if(tempParse[i] != "||" && tempParse[i] != ";" && tempParse[i] != "&&")
+            cmdToken.push_back(tempParse[i]);
+        else{
+            result.push_back(cmdToken);
+            cmdToken.clear();
+            cmdToken.push_back(tempParse[i];
+            result.push_back(cmdToken);
+            cmdtoken.clear();
+        }
+    }
+    result.push_back(cmdToken);
     delete[] cstr;
     return result;
 }
