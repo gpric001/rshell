@@ -10,7 +10,7 @@ class Rshell {
     public:
         Rshell();
         void setParser(Parser *p);
-        void seTreeCreator(TreeCreator *tc);
+        void setTreeCreator(TreeCreator *tc);
         void run();
     private:
         Parser *parser;
