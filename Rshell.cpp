@@ -18,7 +18,7 @@ void Rshell::run(){
         std::cout<<"$ "; //Display prompt
         std::getline(std::cin, userInput); //Get user input
         //Parse user input
-        tc->create(p->parse(userInput);
+        tc->create(p->parse(userInput));
         //Create tree from parsed input
         //Execute parsed input
         //Repeat

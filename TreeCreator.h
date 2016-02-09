@@ -1,6 +1,7 @@
 #ifndef TREECREATOR_H
 #define TREECREATOR_H
 
+#include "CommandComponent.h"
 #include "Or.h"
 #include "And.h"
 #include "Semicolon.h"

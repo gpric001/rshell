@@ -1,6 +1,6 @@
 #include "TreeCreator.h"
 
-TreeCreator()::TreeCreator() {};
+TreeCreator::TreeCreator() {};
 
 CommandComponent* TreeCreator::create(tokens& input){
     build(0, input);
@@ -34,29 +34,31 @@ CommandComponent* TreeCreator::buildSub(int start, int end, tokens& input){
 CommandComponent* TreeCreator::buildConnector(std::string token, 
                                 CommandComponent* left, 
                                 CommandComponent* right){
+    CommandComponent* connector;
     if(token == ";")
-        Semicolon connector(left, right);
+        connector = new Semicolon(left, right);
 
     else if(token == "||")
-        Or connector;
-    
-    else if(token == "&&")
-        And connector;
+        connector = new Or(left, right);
 
-    return &connector;
+    else if (token == "&&")
+        connector = new And(left, right);
+
+    return connector;
 }
 
 CommandComponent* TreeCreator::buildCmd(tokens input){
     std::string cmdName = input[0];
+    CommandComponent* command;
     if(cmdName == "echo")
-        Echo command;
+        command = new Echo();
     else if(cmdName == "cd")
-        Cd command;
+        command = new Cd();
     else if(cmdName == "exit")
-        Exit command;
+        command = new Exit();
     else
-        BinCmd command;
-    command.setName(cmdName, input);
+        command = new BinCmd();
+    command->setName(cmdName, input);
     return command;
 }
 
