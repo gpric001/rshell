@@ -1,5 +1,5 @@
-#ifndef R_SHELL.h
-#define R_SHELL.h
+#ifndef RSHELL_H
+#define RSHELL_H
 
 #include <iostream>
 #include <string>
