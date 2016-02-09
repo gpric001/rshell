@@ -7,7 +7,7 @@
 #include "Exit.h"
 #include "Echo.h"
 #include "Cd.h"
-#include "BinCmds.h"
+#include "BinCmd.h"
 
 #typedef std::vector<std::vector<std::string > > tokens; 
 class TreeCreator{
