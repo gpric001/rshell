@@ -34,7 +34,7 @@ int main()
 
 			char temp[] = {'l','s'};
             char* cmd[] = {temp,NULL};
-            cout << execvp("/home/ubuntu/workspace/CS100/bin/ls.exe", cmd);// call command //return
+            return execvp("/home/ubuntu/workspace/CS100/bin/ls.exe", cmd);// call command //return
          }
          else /* parent process */
          {
