@@ -31,7 +31,7 @@ CommandComponent* TreeCreator::buildSub(int start, int end, tokens& input){
     }
 }
 
-CommandComponent* TreeCreator::buildConnector(std::string token, 
+CommandComponent* TreeCreator::buildConnector(std::string& token, 
                                 CommandComponent* left, 
                                 CommandComponent* right){
     CommandComponent* connector;
@@ -47,7 +47,7 @@ CommandComponent* TreeCreator::buildConnector(std::string token,
     return connector;
 }
 
-CommandComponent* TreeCreator::buildCmd(tokens input){
+CommandComponent* TreeCreator::buildCmd(tokens& input){
     std::string cmdName = input[0];
     CommandComponent* command;
     if(cmdName == "echo")

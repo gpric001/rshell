@@ -18,9 +18,9 @@ class TreeCreator{
     private:
         CommandComponent* build(int start, tokens& input);
         CommandComponent* buildSub(int start, int end, tokens& input);
-        CommandComponent* buildConnector(std::string token,
+        CommandComponent* buildConnector(std::string& token,
                                          CommandComponent* left,
                                          CommandComponent* right);
-        CommandComponent* buildCmd(tokens input);
+        CommandComponent* buildCmd(tokens& input);
 };
 #endif
