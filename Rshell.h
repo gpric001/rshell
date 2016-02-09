@@ -1,6 +1,9 @@
 #ifndef R_SHELL.h
 #define R_SHELL.h
 
+#include <iostream>
+#include <string>
+
 class Rshell {
     public:
         Rshell();

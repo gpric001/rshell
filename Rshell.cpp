@@ -12,10 +12,11 @@ void Rshell::setTreeCreator(TreeCreator* tc){
 
 void Rshell::run(){
     bool running = true;
+    std::string userInput;
     while(running){
-        //TODO: Display prompt
-        //TOOD: Get user input
-        std::string test = "e || d; f || g; h && s || z || m";
+        
+        std::cout<<"$ "; //Display prompt
+        std::getline(std::cin, userInput); //Get user input
         //Parse user input
         cc->execute(tc->create(p->parse()));
         //Create tree from parsed input
