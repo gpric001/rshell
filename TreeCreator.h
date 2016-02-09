@@ -14,7 +14,7 @@ typedef std::vector<std::vector<std::string > > tokens;
 class TreeCreator{
     public:
         TreeCreator();
-        CommandComponent* create();
+        CommandComponent* create(tokens&);
     private:
         CommandComponent* build(int start, tokens& input);
         CommandComponent* buildSub(int start, int end, tokens& input);
