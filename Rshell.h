@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include "Parser.h"
+#include "TreeCreator.h"
 
 class Rshell {
     public:
