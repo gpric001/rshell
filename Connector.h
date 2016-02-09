@@ -14,6 +14,11 @@ class Connector : public CommandComponent
     public:
         virtual int execute() = 0;
         
+        Connector(CommandComponent* c1, CommandComponent* c2)
+        {
+            childL = c1;
+            childR = c2;
+        }
 };
 
 #endif
