@@ -12,7 +12,7 @@ class CommandComponent
         vector<string> args;
     
     public:
-        virtual void set(string c, vector<string> a) = 0;
+        void set(string c, vector<string> a);
         virtual int execute() = 0;
   
 };
