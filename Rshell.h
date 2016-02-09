@@ -14,6 +14,6 @@ class Rshell {
         Parser *parser;
         TreeCreator *tc;
         CommandComponant *cc;
-}
+};
 #endif
 

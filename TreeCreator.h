@@ -9,7 +9,7 @@
 #include "Cd.h"
 #include "BinCmd.h"
 
-#typedef std::vector<std::vector<std::string > > tokens; 
+typedef std::vector<std::vector<std::string > > tokens; 
 class TreeCreator{
     public:
         TreeCreator();
@@ -21,5 +21,5 @@ class TreeCreator{
                                          CommandComponent* left,
                                          CommandComponent* right);
         CommandComponent* buildCmd(tokens input);
-}
+};
 #endif
