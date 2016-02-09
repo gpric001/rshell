@@ -7,7 +7,7 @@ CommandComponent* TreeCreator::create(tokens& input){
 }
 
 CommandComponent* TreeCreator::build(int start, tokens& input){
-    for(int i = start, i < input.size(), i++){
+    for(int i = start; i < input.size(); i++){
         if(input[i][0] == ";"){
             CommandComponent* left = buildSub(start, i, input);
             CommandComponent* right = build(i+1, input);
@@ -58,7 +58,7 @@ CommandComponent* TreeCreator::buildCmd(tokens input){
         command = new Exit();
     else
         command = new BinCmd();
-    command->setName(cmdName, input);
+    command->set(cmdName, input);
     return command;
 }
 
