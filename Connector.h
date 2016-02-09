@@ -7,7 +7,7 @@ using namespace std;
 
 class Connector : public CommandComponent
 {
-    private:
+    protected:
         CommandComponent* childL;
         CommandComponent* childR;
         
