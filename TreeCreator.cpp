@@ -34,23 +34,14 @@ CommandComponent* TreeCreator::buildSub(int start, int end, tokens& input){
 CommandComponent* TreeCreator::buildConnector(std::string token, 
                                 CommandComponent* left, 
                                 CommandComponent* right){
-    if(token == ";"){
-        Semicolon connector;
-        Semicolon.setLeft(left);
-        Semicolon.setRight(right);
-    }
+    if(token == ";")
+        Semicolon connector(left, right);
 
-    else if(token == "||"){
+    else if(token == "||")
         Or connector;
-        Or.setLeft(left);
-        Or.setRight(right);
-    }
     
-    else if(token == "&&"){
+    else if(token == "&&")
         And connector;
-        And.setLeft(left);
-        And.setRight(right);
-    }
 
     return &connector;
 }
@@ -65,8 +56,7 @@ CommandComponent* TreeCreator::buildCmd(tokens input){
         Exit command;
     else
         BinCmd command;
-    command.setName(cmdName);
-    command.setArgs(input);
+    command.setName(cmdName, input);
     return command;
 }
 
