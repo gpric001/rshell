@@ -10,7 +10,9 @@ Semicolon::Semicolon(CommandComponent* left, CommandComponent* right)
 
 int Semicolon::execute()
 {
-    return 1;
+	childL->execute();
+	childR->execute();
+	return 1;
 };
 
 void set(const string& c, const vector<string>& a)
