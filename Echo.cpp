@@ -15,7 +15,8 @@ int Echo::execute()
 {
 	for(unsigned int i = 1; i < args.size(); i++)
 	{
-		cout << args[i] << endl;
+		cout << args[i] << " ";
+		cout << endl;
     	}
 
     return 1;
