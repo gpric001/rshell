@@ -12,3 +12,8 @@ int Semicolon::execute()
 {
     return 1;
 };
+
+void set(const string& c, const vector<string>& a)
+{
+
+};

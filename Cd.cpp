@@ -1,6 +1,6 @@
 #include "Cd.h"
 
-void Cd::set(string c, vector<string> a)
+void Cd::set(const string& c, const vector<string>& a)
 {
     cmd = c;
     args = a;

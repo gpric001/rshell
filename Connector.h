@@ -19,6 +19,12 @@ class Connector : public CommandComponent
             childL = c1;
             childR = c2;
         }
+
+	void set(const string&c, const vector<string>& a)
+	{
+
+	}
+
 };
 
 #endif

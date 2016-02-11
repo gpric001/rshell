@@ -12,7 +12,7 @@ class Exit : public CommandComponent
     private:
 
     public:
-        void set(string c, vector<string> a);
+        void set(const string& c, const vector<string>& a);
         int execute();
 };
 

@@ -12,3 +12,10 @@ int And::execute()
 {
     return ( childL->execute() && childR->execute() );
 };
+
+void set(const string& c, const vector<string>& a)
+{
+
+};
+
+

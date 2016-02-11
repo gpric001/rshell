@@ -12,7 +12,7 @@ class Or : public Connector
     public:
         Or(CommandComponent* left, CommandComponent* right);
         int execute();
-    
+	void set(const string& c, const vector<string>& a);    
 };
 
 #endif
