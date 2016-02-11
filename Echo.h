@@ -12,7 +12,7 @@ class Echo : public CommandComponent
     private:
         
     public:
-      
+    	Echo(const string& c, const vector<string>& a);  
         int execute();
 };
 
