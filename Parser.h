@@ -8,7 +8,7 @@
 class Parser{
     public:
         Parser();
-        std::vector<std::vector<std::string> > parse(std::string &s);
+        std::vector<std::vector<std::string> > parse(const std::string &s);
 //        void setShell (Rshell* shell);
 //    private:
 //        Rshell* shell;

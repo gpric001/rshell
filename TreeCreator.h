@@ -14,13 +14,13 @@ typedef std::vector<std::vector<std::string > > tokens;
 class TreeCreator{
     public:
         TreeCreator();
-        CommandComponent* create(tokens&);
+        CommandComponent* create(const tokens&);
     private:
-        CommandComponent* build(int start, tokens& input);
-        CommandComponent* buildSub(int start, int end, tokens& input);
-        CommandComponent* buildConnector(std::string& token,
+        CommandComponent* build(int start, const tokens& input);
+        CommandComponent* buildSub(int start, int end, const tokens& input);
+        CommandComponent* buildConnector(const std::string& token,
                                          CommandComponent* left,
                                          CommandComponent* right);
-        CommandComponent* buildCmd(tokens& input);
+        CommandComponent* buildCmd(const std::vector<std::string>& input);
 };
 #endif

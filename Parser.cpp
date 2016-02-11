@@ -2,7 +2,7 @@
 
 Parser::Parser() {};
 
-std::vector<std::vector<std::string> > Parser::parse(std::string &s){
+std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
     std::vector<std::vector<std::string> > result;
     std::vector<std::string> tempParse;
     char * cstr = new char [s.size()+1];
