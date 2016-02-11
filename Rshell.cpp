@@ -7,7 +7,6 @@ void Rshell::setParser(Parser* p){
 }
 
 void Rshell::setTreeCreator(TreeCreator* tc){
-<<<<<<< HEAD
     this->tc = tc;
 }
 
