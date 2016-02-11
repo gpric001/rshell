@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-void Echo::set(const string& c, const vector<string>& a)
+Echo::Echo(const string& c, const vector<string>& a)
 {
     cmd = c;
     args = a;

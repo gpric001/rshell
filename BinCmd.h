@@ -9,10 +9,10 @@ using namespace std;
 
 class BinCmd : public CommandComponent
 {
-    public:
-        
     private:
-        void set(const string& c, const vector<string>& a);
+        
+    public:
+
         int execute();
 };
 
