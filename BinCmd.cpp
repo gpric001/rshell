@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-void BinCmd::set(string c, vector<string> a)
+void BinCmd::set(const string& c, const vector<string>& a)
 {
     cmd = c;
     args = a;

@@ -12,7 +12,7 @@ class BinCmd : public CommandComponent
     public:
         
     private:
-        void set(string c, vector<string> a);
+        void set(const string& c, vector<string>& a);
         int execute();
 };
 
