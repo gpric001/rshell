@@ -51,14 +51,13 @@ CommandComponent* TreeCreator::buildCmd(const std::vector<std::string>& cmd){
     std::string cmdName = cmd[0];
     CommandComponent* command;
     if(cmdName == "echo")
-        command = new Echo;
+        command = new Echo(cmdName, cmd);
     else if(cmdName == "cd")
-        command = new Cd;
+        command = new Cd(cmdName, cmd);
     else if(cmdName == "exit")
-        command = new Exit;
+        command = new Exit(cmdName, cmd);
     else
-        command = new BinCmd;
-    command->set(cmdName, cmd);
+        command = new BinCmd(cmdName, cmd);
     return command;
 }
 
