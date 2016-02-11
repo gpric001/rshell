@@ -13,7 +13,10 @@ Echo::Echo(const string& c, const vector<string>& a)
 
 int Echo::execute()
 {
-    cout << args[0] << endl;
-    
+	for(unsigned int i = 1; i < args.size(); i++)
+	{
+		cout << args[i] << endl;
+    	}
+
     return 1;
 };
