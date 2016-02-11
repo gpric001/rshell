@@ -5,7 +5,7 @@
 #include <stdlib.h>
 using namespace std;
 
-void Exit::set(const string& c, const vector<string>& a)
+Exit::Exit(const string& c, const vector<string>& a)
 {
     cmd = c;
     args = a;

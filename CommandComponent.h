@@ -8,8 +8,8 @@ using namespace std;
 class CommandComponent
 {
     protected:
-        const string cmd;
-        const vector<string> args;
+        string cmd;
+        vector<string> args;
     
     public:
         virtual int execute() = 0;
