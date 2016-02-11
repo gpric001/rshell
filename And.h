@@ -12,7 +12,6 @@ class And : public Connector
     public:
         And(CommandComponent* left, CommandComponent* right);
         int execute();
-	void set(const string& c, const vector<string>& a );
 };
 
 #endif

@@ -12,7 +12,7 @@ class Semicolon : public Connector
     public:
         Semicolon(CommandComponent* left, CommandComponent* right);
         int execute();
-	void set(const string& c, const vector<string>& a);            
+	            
 };
 
 #endif
