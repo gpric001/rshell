@@ -20,11 +20,6 @@ class Connector : public CommandComponent
             childR = c2;
         }
 
-	void set(const string&c, const vector<string>& a)
-	{
-
-	}
-
 };
 
 #endif
