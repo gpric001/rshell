@@ -10,6 +10,7 @@ class Or : public Connector
     private:
     
     public:
+        Or(CommandComponent* left, CommandComponent* right);
         int execute();
     
 };
