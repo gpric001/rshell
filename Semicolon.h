@@ -10,8 +10,9 @@ class Semicolon : public Connector
     private:
     
     public:
+        Semicolon(CommandComponent* left, CommandComponent* right);
         int execute();
-    
+            
 };
 
 #endif

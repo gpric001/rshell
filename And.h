@@ -10,6 +10,7 @@ class And : public Connector
     private:
     
     public:
+        And(CommandComponent* left, CommandComponent* right);
         int execute();
     
 };
