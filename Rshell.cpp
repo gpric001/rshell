@@ -13,7 +13,6 @@ void Rshell::setTreeCreator(TreeCreator* tc){
 void Rshell::run(){
     bool running = true;
     std::string userInput;
-    tc->create(parser->parse("clear"))->execute();
     while(running){
         
         std::cout<<"$ "; //Display prompt
