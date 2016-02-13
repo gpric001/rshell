@@ -27,10 +27,10 @@ Exit::Exit(const string& c, const vector<string>& a)
 {
     cmd = c;
     args = a;
-};
+}
 
 int Exit::execute()
 {
     exit(0);
     
-};
+}

@@ -22,10 +22,10 @@ Cd::Cd(const string& c, const vector<string>& a)
 {
     cmd = c;
     args = a;
-};
+}
 
 int Cd::execute()
-{
+{				// Does not need to be implemented
     
-    //return;
-};
+    return 0;
+}

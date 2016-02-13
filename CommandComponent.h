@@ -26,7 +26,7 @@ using namespace std;
 class CommandComponent
 {
     protected:
-        string cmd;
+        string cmd;			// command name and argument list
         vector<string> args;
     
     public:

@@ -16,7 +16,7 @@
 
     This program comes with ABSOLUTELY NO WARRANTY.     */
 
-#include "BinCmd.h"
+#include "BinCmd.h"		// included files and libraries
 
 #include <iostream>
 #include <vector>
@@ -31,19 +31,19 @@ using namespace std;
 #include <sys/wait.h>
 #include <string.h>
 
-BinCmd::BinCmd(const string& c, const vector<string>& a)
+BinCmd::BinCmd(const string& c, const vector<string>& a)	// sets command and argument list
 {
     cmd = c;
     args = a;
-};
+}
 
 int BinCmd::execute()
 {
-	string path = "/bin/";
+	string path = "/bin/";		// creates proper path for bin commands
 	path.append(cmd);
 	const char* transfer = path.c_str();
 		
-	const size_t size = args.size();
+	const size_t size = args.size();		// creates new array to transfer to execvp
 	char** argArray = new char*[ size + 1 ];
 
 	for( size_t i = 0; i < size; i++ )
@@ -52,9 +52,9 @@ int BinCmd::execute()
 	}
 	argArray[size] = 0;
 
-	pid_t childPid;
+	pid_t childPid;				// forking process to create child processes
 	int chkFork = ( childPid = fork() );
-	if( chkFork == -1 )
+	if( chkFork == -1 )				// error checking for all system calls
 		perror("Error - Fork Failed");
 
 	if( childPid >= 0 )
@@ -76,9 +76,9 @@ int BinCmd::execute()
     		}	
 	}
 	
-	if( errno == 0)
+	if( errno == 0)		// return success of failure
 		return 1;
 	else
 		return 0;
 
-};
+}

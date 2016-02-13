@@ -24,12 +24,12 @@
 using namespace std;
 
 Semicolon::Semicolon(CommandComponent* left, CommandComponent* right)
-:Connector(left, right) {};
+:Connector(left, right) {}
 
 int Semicolon::execute()
 {
 	childL->execute();
 	childR->execute();
 	return 1;
-};
+}
 

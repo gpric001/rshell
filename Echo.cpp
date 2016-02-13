@@ -27,9 +27,9 @@ Echo::Echo(const string& c, const vector<string>& a)
 {
     cmd = c;
     args = a;
-};
+}
 
-int Echo::execute()
+int Echo::execute()		// outputs all arguments so echo may contain spaces
 {
 	for(unsigned int i = 1; i < args.size(); i++)
 	{
@@ -38,4 +38,4 @@ int Echo::execute()
 	cout << endl;
 
     return 1;
-};
+}

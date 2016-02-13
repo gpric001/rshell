@@ -24,9 +24,9 @@
 using namespace std;
 
 And::And(CommandComponent* left, CommandComponent* right)
-:Connector(left, right) {};
+:Connector(left, right) {}
 
-int And::execute()
+int And::execute()		// executes child nodes with logical AND
 {
     return ( childL->execute() && childR->execute() );
-};
+}
