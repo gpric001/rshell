@@ -26,15 +26,9 @@ CommandComponent* TreeCreator::buildSub(int start, int end, const tokens& input)
         return buildCmd(input[start]);
     //Otherwise recursively build the connector and commands
     std::string connectorToken = input[start+1][0];
-    if(connectorToken == "||" || connectorToken == "&&"){
         CommandComponent* left = buildCmd(input[start]);
         CommandComponent* right = buildSub(start+2, end, input);
         return buildConnector(connectorToken, left, right);
-    }
-    else{
-        CommandComponent* error;
-        return error;
-    }
 }
 
 CommandComponent* TreeCreator::buildConnector(const std::string& token, 
