@@ -13,6 +13,6 @@ class Rshell {
     private:
         Parser *parser;
         TreeCreator *tc;
-};
+}; 
 #endif
 

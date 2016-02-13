@@ -27,7 +27,7 @@ CommandComponent* TreeCreator::buildSub(int start, int end, const tokens& input)
         return buildConnector(connectorToken, left, right);
     }
     else{
-        //return an error
+         //return an error
     }
 }
 

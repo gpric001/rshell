@@ -22,7 +22,6 @@ void Rshell::run(){
         //Create tree from parsed input
         //Execute parsed input
         //Repeat
-        running = false;
     }
 }
 

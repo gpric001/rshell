@@ -22,5 +22,5 @@ class TreeCreator{
                                          CommandComponent* left,
                                          CommandComponent* right);
         CommandComponent* buildCmd(const std::vector<std::string>& input);
-};
+}; 
 #endif
