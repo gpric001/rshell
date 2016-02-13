@@ -22,7 +22,7 @@ std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
         //Check to see if the current token is a flag
         if(tmp[0] == '-'){
             //If the string is a list of flags then split them
-            if(tmp.size() >= 2 && tmp[1] == '-'{ //Check for -- flag
+            if(tmp.size() >= 2 && tmp[1] == '-') //Check for -- flag
                 tempParse.push_back(tmp);
             for(int i = 1; i < tmp.size(); i++){
                 std::string tmpS(1, tmp[i]);
