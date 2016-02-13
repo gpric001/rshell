@@ -16,23 +16,15 @@
 
     This program comes with ABSOLUTELY NO WARRANTY.     */
 
-#ifndef RSHELL_H
-#define RSHELL_H
-
-#include <iostream>
-#include <string>
-#include "Parser.h"
-#include "TreeCreator.h"
+#include "Rshell.h"
  
-class Rshell {
-    public:
-        Rshell();
-        void setParser(Parser *p);
-        void setTreeCreator(TreeCreator *tc);
-        void run();
-    private:
-        Parser *parser;
-        TreeCreator *tc;
-}; 
-#endif
+int main(int argc, char** argv){
+    Rshell shell;
+    Parser p;
+    TreeCreator tc;
+    shell.setParser(&p);
+    shell.setTreeCreator(&tc);
+    shell.run();
 
+    return 0;
+}
