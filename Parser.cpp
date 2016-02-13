@@ -20,9 +20,14 @@ std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
 
         if(tmp[0] == '-'){
             //If the string is a list of flags then split them
-            for(int i = 1; i < tmp.size(); i++)
-                tempParse.push_back(std::string(1, tmp[i]));
-                }
+            for(int i = 1; i < tmp.size(); i++){
+                std::string tmpS(1, tmp[i]);
+                tmpS.insert(0, "-");
+                tempParse.push_back(tmpS);
+            }
+         }
+        else if(tmp[0] == '#')
+            break;
         else
             tempParse.push_back(tmp);
 
@@ -48,8 +53,3 @@ std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
     delete[] cstr;
     return result;
 }
-
-//void Parser::setShell(Rshell* shell){
-//    this.shell = shell;
-//
-
