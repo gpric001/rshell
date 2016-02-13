@@ -1,0 +1,12 @@
+ls 
+ls -1
+ls -1 -a
+echo fish
+cat Or.h
+pwd
+ps
+date
+grep -i public Connector.h 
+ls -1h
+cat -n And.h Cd.h
+exit

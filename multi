@@ -1,0 +1,7 @@
+echo colon; echo colon2; echo and1 && echo and2; echo this || echo that
+echo first& && echo second& && echo third&
+echo Or1 || echo Or2 || echo Or3
+echo combo1 && echo combo2 || echo combo3 && echo combo4
+echo co1 || echo co2 && echo co3 || echo co34
+exit
+
