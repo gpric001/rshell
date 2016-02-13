@@ -53,7 +53,7 @@ int BinCmd::execute()
 	argArray[size] = 0;
 
 	pid_t childPid;
-	chkFork = ( childPid = fork() );
+	int chkFork = ( childPid = fork() );
 	if( chkFork == -1 )
 		perror("Error - Fork Failed");
 
@@ -61,13 +61,13 @@ int BinCmd::execute()
 	{
 		if( childPid == 0 )
 		{
-			chkExe = ( execvp(transfer, argArray) );
+			int chkExe = ( execvp(transfer, argArray) );
 			if( chkExe == -1 )
 				perror("Error - Execution Failed");
 		}
 		else
 		{
-			chkWait = ( wait(NULL) );
+			int chkWait = ( wait(NULL) );
 			if( chkWait == -1)
 				perror("Error - Wait Failed");
     		}	
