@@ -1,5 +1,6 @@
 all:
-  g++ *.h *.cpp
+  g++ *.h *.cpp -Wall -Werror -ansi -pedantic
+	mkdir bin
 rshell
-  mkdir bin
-  mkdir src
+  g++ *.h *.cpp -Wall -Werror -ansi -pedantic
+  
