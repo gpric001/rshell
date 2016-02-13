@@ -20,6 +20,8 @@ std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
 
         if(tmp[0] == '-'){
             //If the string is a list of flags then split them
+            if(tmp.size() >= 2 && tmp[1] == '-'{
+                tempParse.push_back(tmp);
             for(int i = 1; i < tmp.size(); i++){
                 std::string tmpS(1, tmp[i]);
                 tmpS.insert(0, "-");
