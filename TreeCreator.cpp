@@ -1,6 +1,6 @@
 #include "TreeCreator.h"
 
-TreeCreator::TreeCreator() {};
+TreeCreator::TreeCreator() {}
 
 CommandComponent* TreeCreator::create(const tokens& input){
     build(0, input);
@@ -9,7 +9,7 @@ CommandComponent* TreeCreator::create(const tokens& input){
 CommandComponent* TreeCreator::build(int start, const tokens& input){
     //Searches for a ; connector, i found then it builds the left subtree
     //And recursively trys to build the right subtree up to the next ; connector
-    for(int i = start; i < input.size(); i++){
+    for(unsigned int i = start; i < input.size(); i++){
         if(input[i][0] == ";"){
             CommandComponent* left = buildSub(start, i, input);
             CommandComponent* right = build(i+1, input);

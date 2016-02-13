@@ -1,6 +1,6 @@
 #include "Parser.h"
 
-Parser::Parser() {};
+Parser::Parser() {}
  
 std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
     std::vector<std::vector<std::string> > result; //The complete parsed string
@@ -46,7 +46,7 @@ std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
     
     std::vector<std::string> cmdToken;
     //Create the name of the command or connector for each grouped command
-    for(int i = 0; i < tempParse.size(); i++){
+    for(unsigned int i = 0; i < tempParse.size(); i++){
         if(tempParse[i] != "||" && tempParse[i] != ";" && tempParse[i] != "&&")
             cmdToken.push_back(tempParse[i]);
         else{
