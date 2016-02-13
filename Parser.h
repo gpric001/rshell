@@ -9,5 +9,5 @@ class Parser{
     public:
         Parser();
         std::vector<std::vector<std::string> > parse(const std::string &s);
-};
+}; 
 #endif
