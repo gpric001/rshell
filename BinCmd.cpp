@@ -63,7 +63,10 @@ int BinCmd::execute()
 		{
 			int chkExe = ( execvp(transfer, argArray) );
 			if( chkExe == -1 )
+			{
 				perror("Error - Execution Failed");
+				exit(0);	
+			}
 		}
 		else
 		{
