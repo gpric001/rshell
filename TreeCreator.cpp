@@ -31,9 +31,6 @@ CommandComponent* TreeCreator::buildSub(int start, int end, const tokens& input)
         CommandComponent* right = buildSub(start+2, end, input);
         return buildConnector(connectorToken, left, right);
     }
-    else{
-         //return an error
-    }
 }
 
 CommandComponent* TreeCreator::buildConnector(const std::string& token, 
