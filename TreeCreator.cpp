@@ -7,6 +7,8 @@ CommandComponent* TreeCreator::create(const tokens& input){
 }
 
 CommandComponent* TreeCreator::build(int start, const tokens& input){
+    //Searches for a ; connector, i found then it builds the left subtree
+    //And recursively trys to build the right subtree up to the next ; connector
     for(int i = start; i < input.size(); i++){
         if(input[i][0] == ";"){
             CommandComponent* left = buildSub(start, i, input);
@@ -14,12 +16,15 @@ CommandComponent* TreeCreator::build(int start, const tokens& input){
             return buildConnector(";", left, right);
         }
     }
+    //If no ; connector is found then builds the entire tree as a subtree
     return buildSub(start, input.size(), input);
 }
 
 CommandComponent* TreeCreator::buildSub(int start, int end, const tokens& input){
+    //If we're at the last grouping, build it as a command
     if((end - start - 1) == 0)
         return buildCmd(input[start]);
+    //Otherwise recursively build the connector and commands
     std::string connectorToken = input[start+1][0];
     if(connectorToken == "||" || connectorToken == "&&"){
         CommandComponent* left = buildCmd(input[start]);
