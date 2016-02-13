@@ -39,7 +39,7 @@ void Rshell::run(){
         std::getline(std::cin, userInput); //Get user input
         //If the user input isn't empty, then parse user input,
         //build the tree, and execute the top node of the tree.
-        if(!(userInput.empty()))
+        if(!(userInput.empty() || userInput[0] == '#'))
             tc->create(parser->parse(userInput))->execute();
     }
 }
