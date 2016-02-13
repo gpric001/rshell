@@ -3,7 +3,7 @@
 TreeCreator::TreeCreator() {}
 
 CommandComponent* TreeCreator::create(const tokens& input){
-    build(0, input);
+    return build(0, input);
 }
 
 CommandComponent* TreeCreator::build(int start, const tokens& input){

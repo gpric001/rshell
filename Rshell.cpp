@@ -1,6 +1,6 @@
 #include "Rshell.h"
 
-Rshell::Rshell() {};
+Rshell::Rshell() {}
 
 void Rshell::setParser(Parser* p){
     parser = p;

@@ -24,7 +24,7 @@ std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
             //If the string is a list of flags then split them
             if(tmp.size() >= 2 && tmp[1] == '-') //Check for -- flag
                 tempParse.push_back(tmp);
-            for(int i = 1; i < tmp.size(); i++){
+            for(unsigned int i = 1; i < tmp.size(); i++){
                 std::string tmpS(1, tmp[i]);
                 tmpS.insert(0, "-");
                 tempParse.push_back(tmpS);
