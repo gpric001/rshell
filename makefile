@@ -9,6 +9,7 @@ rshell : $(OBJECTS)
 	$(CC) $(OBJECTS) $(CFLAGS) -o rshell 
 	mkdir bin
 	mv $(OBJECTS) rshell bin
+	rm src/*.gch
 And.o : And.cpp And.h Connector.h
 	$(CC) -c $(CFLAGS) $^
 BinCmd.o : BinCmd.cpp BinCmd.h CommandComponent.h
