@@ -1,5 +1,0 @@
-echo before comment #after comment
-cat Semicolon.h || echo FAIL  #nothing && something
-ls -1 # this will list in single column; echo DO NOT DISPLAY
-exit
-
