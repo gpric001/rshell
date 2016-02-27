@@ -9,7 +9,6 @@ rshell : $(OBJECTS)
 	$(CC) $(OBJECTS) $(CFLAGS) -o rshell 
 	mkdir bin
 	mv $(OBJECTS) rshell bin
-	rm src/*.gch
 And.o : And.cpp And.h Connector.h
 	$(CC) -c $(CFLAGS) $^
 BinCmd.o : BinCmd.cpp BinCmd.h CommandComponent.h
@@ -35,3 +34,4 @@ TreeCreator.o : TreeCreator.cpp TreeCreator.h CommandComponent.h \
 	$(CC) -c $(CFLAGS) $^
 clean :
 	rm -R bin
+	rm src/*.gch
