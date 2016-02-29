@@ -22,23 +22,33 @@ Parser::Parser() {}
  
 std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
     std::vector<std::vector<std::string> > result; //The complete parsed string
-    std::vector<std::string> tempParse; //One command or connected parsed
+    std::vector<std::string> tempParse; //One command or connector parsed
     char * cstr = new char [s.size()+1]; //The string as a char array
     std::strcpy(cstr, s.c_str()); 
     char * p = std::strtok(cstr, " "); //The first token
     bool continueConnect; //Flag for determining if we get a ;
     while(p != NULL){
         continueConnect = false; //Assume the token isn't a ; first
+        closeParen = false; //Assume the token isnt't a )
         std::string tmp(p);
 
-        //Check to see if the current token is a ;
+        //Check to see if the current token is a ; 
         if(tmp[tmp.size()-1] == ';'){
             tmp = tmp.substr(0, tmp.size()-1);
             continueConnect = true;
         }
+        
+        if(tmp
+        else if((tmp[0] == '(' || tmp[0] == ')') && tmp.size() == 1)
+            tmpParse.push_back(tmp);
 
+        //Check to see if the current token is the symbolic test operator
+        else if((tmp[0] == '[' || tmp[0] == ']') && tmp.size() == 1)
+            tmpParse.push_back(tmp);
+
+        else if(tmp[0] == '(' || tmp[tmp.size()-1] == ')')
         //Check to see if the current token is a flag
-        if(tmp[0] == '-'){
+        else if(tmp[0] == '-'){
             //If the string is a list of flags then split them
             if(tmp.size() >= 2 && tmp[1] == '-') //Check for -- flag
                 tempParse.push_back(tmp);
