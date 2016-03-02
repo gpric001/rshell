@@ -28,6 +28,9 @@ Or::Or(CommandComponent* left, CommandComponent* right)
 
 int Or::execute()
 {
-    return ( childL->execute() || childR->execute() );
+	if( childL->execute() == false ) 
+		return childR->execute();
+	if( childL->excute() == true )
+		return false;
 }
 
