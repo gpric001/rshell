@@ -30,7 +30,7 @@ int Or::execute()
 {
 	if( childL->execute() == false ) 
 		return childR->execute();
-	if( childL->excute() == true )
+	else
 		return false;
 }
 
