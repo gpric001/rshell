@@ -2,13 +2,15 @@ CC=g++
 CFLAGS=-Wall -Werror -ansi -pedantic
 SOURCES=
 OBJECTS=And.o BinCmd.o Cd.o Echo.o Exit.o main.o Or.o Parser.o Rshell.o \
-        Semicolon.o TreeCreator.o
+        Semicolon.o TreeCreator.o Test.o
 VPATH=src
 all : rshell
 rshell : $(OBJECTS)
 	$(CC) $(OBJECTS) $(CFLAGS) -o rshell 
 	mkdir bin
 	mv $(OBJECTS) rshell bin
+Test.o : Test.cpp Test.h CommandComponent.h
+	$(CC) -c $(CFLAGS) $^
 And.o : And.cpp And.h Connector.h
 	$(CC) -c $(CFLAGS) $^
 BinCmd.o : BinCmd.cpp BinCmd.h CommandComponent.h
@@ -30,7 +32,8 @@ Rshell.o : Rshell.cpp Rshell.h Parser.h TreeCreator.h
 Semicolon.o : Semicolon.cpp Semicolon.h Connector.h
 	$(CC) -c $(CFLAGS) $^
 TreeCreator.o : TreeCreator.cpp TreeCreator.h CommandComponent.h \
-                Or.h And.h Semicolon.h Exit.h Echo.h Cd.h BinCmd.h
+                Or.h And.h Semicolon.h Exit.h Echo.h Cd.h BinCmd.h \
+		Test.h
 	$(CC) -c $(CFLAGS) $^
 clean :
 	rm -R bin

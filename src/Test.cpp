@@ -24,8 +24,9 @@ using namespace std;
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <vector>
 
-Test::Test(const string& c, const vector<string>& a);
+Test::Test(const string& c, const vector<string>& a)
 {
 	cmd = c;
 	args = a;	
@@ -45,10 +46,12 @@ int Test::execute()
 		if( stat( path, &buf ) == 0 )
 		{
 			cout << "(True)" << endl;
+			return true;
 		}
 		else if( stat( path, &buf ) == -1 )
 		{
 			cout << "(False)" << endl;
+			return false;
 		}
 	}
 	else if ( args.size() == 3)
@@ -64,10 +67,12 @@ int Test::execute()
 			if( stat( path, &buf ) == 0 && S_ISDIR(buf.st_mode) )
 			{
 				cout << "(True)" << endl;
+				return true;
 			}
 			else
 			{
 				cout << "(False)" << endl;
+				return false;
 			}
 		}
 		else if( args[1] == "-e" )
@@ -75,10 +80,12 @@ int Test::execute()
 			if ( stat( path, &buf ) == 0 )
 			{
 				cout << "(True)" << endl;
+				return true;
 			}
 			else
 			{
 				cout << "(False)" << endl;
+				return false;
 			}
 		}
 		else if( args[1] == "-f" )
@@ -86,20 +93,22 @@ int Test::execute()
 			if ( stat( path, &buf ) == 0 && S_ISREG(buf.st_mode) )
 			{
 				cout << "(True)" << endl;
+				return true;
 			}
 			else
 			{
 				cout << "(False)" << endl;
+				return false;
 			}
 
 		}
 
 	}
-
+return 0;
 }
 
 
-}
+
 
 
 
