@@ -77,8 +77,14 @@ int BinCmd::execute()
 	}
 	
 	if( errno == 0)		// return success of failure
-		return 1;
+	{
+
+		return false;
+	}
 	else
-		return 0;
+	{
+
+		return true;
+	}
 
 }

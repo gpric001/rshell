@@ -28,5 +28,21 @@ And::And(CommandComponent* left, CommandComponent* right)
 
 int And::execute()		// executes child nodes with logical AND
 {
-    return ( childL->execute() && childR->execute() );
+	if ( childL->execute() == true )
+	{ 
+		if ( childR->execute() == false  )
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	else
+	{
+		return false;
+	}
+
 }
+
