@@ -78,12 +78,12 @@ int BinCmd::execute()
 	
 	if( errno == 0)		// return success of failure
 	{
-cout << "errno 1" << endl;
+
 		return false;
 	}
 	else
 	{
-cout << "errno 0" << endl;
+
 		return true;
 	}
 
