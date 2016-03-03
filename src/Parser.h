@@ -22,11 +22,22 @@
  
 #include <string>
 #include <vector>
+#include <iterator>
 #include <cstring>
+#include <exception>
+#include <algorithm>
 
+typedef std::vector<std::string> tokens;
 class Parser{
     public:
         Parser();
-        std::vector<std::vector<std::string> > parse(const std::string &s); //Parses user input into groups on commands/connectors
-}; 
+        //Parses user input into groups on commands/connectors
+        std::vector<tokens> parse(const std::string&);
+        //Breaks a single token into multiple tokens
+        void split(char*, std::string, tokens&);
+};
+
+class InvalidInput : public std::exception{
+    const std::string what(std::string&) const throw();
+};
 #endif
