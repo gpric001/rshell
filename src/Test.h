@@ -21,12 +21,13 @@ This program comes with ABSOLUTELY NO WARRANTY.     */
 
 #include "CommandComponent.h"
 
-class Test: public CommandComponent
+class Test : public CommandComponent
 {
 	private:
 
 	pubic:
-		
+		Test(const string& c, const vector<string>& a);
+		int execute();
 
 };
 
