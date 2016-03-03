@@ -18,5 +18,89 @@ This program comes with ABSOLUTELY NO WARRANTY.     */
 
 #include "Test.h"
 
-//define methods
+#include <iostream>
+using namespace std;
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
+Test::Test(const string& c, const vector<string>& a);
+{
+	cmd = c;
+	args = a;	
+}
+
+int Test::execute()
+{
+	string dotAdd = ".";
+	struct stat buf;
+	
+	if( args.size() == 2)
+	{
+	string temp1 = args[1];
+	dotAdd.append(temp1);
+	const char* path = dotAdd.c_str();
+
+		if( stat( path, &buf ) == 0 )
+		{
+			cout << "(True)" << endl;
+		}
+		else if( stat( path, &buf ) == -1 )
+		{
+			cout << "(False)" << endl;
+		}
+	}
+	else if ( args.size() == 3)
+	{
+	string temp2 = args[2];
+	dotAdd.append(temp2);
+	const char* path = dotAdd.c_str();
+
+	stat( path, &buf );
+
+		if( args[1] == "-d" )
+		{
+			if( stat( path, &buf ) == 0 && S_ISDIR(buf.st_mode) )
+			{
+				cout << "(True)" << endl;
+			}
+			else
+			{
+				cout << "(False)" << endl;
+			}
+		}
+		else if( args[1] == "-e" )
+		{
+			if ( stat( path, &buf ) == 0 )
+			{
+				cout << "(True)" << endl;
+			}
+			else
+			{
+				cout << "(False)" << endl;
+			}
+		}
+		else if( args[1] == "-f" )
+		{
+			if ( stat( path, &buf ) == 0 && S_ISREG(buf.st_mode) )
+			{
+				cout << "(True)" << endl;
+			}
+			else
+			{
+				cout << "(False)" << endl;
+			}
+
+		}
+
+	}
+
+}
+
+
+}
+
+
+
+ 
