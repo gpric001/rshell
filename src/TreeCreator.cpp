@@ -20,12 +20,13 @@
 
 TreeCreator::TreeCreator() {}
 
-CommandComponent* TreeCreator::create(const tokens& input){
+CommandComponent* TreeCreator::create(const std::vector<tokens>& input){
     return build(0, input);
 }
 
-CommandComponent* TreeCreator::build(int start, const tokens& input){
-    //Searches for a ; connector, i found then it builds the left subtree
+CommandComponent* TreeCreator::build(int start,
+                                     const std::vector<tokens>& input){
+    //Searches for a ; connector, if found then it builds the left subtree
     //And recursively trys to build the right subtree up to the next ; connector
     for(unsigned int i = start; i < input.size(); i++){
         if(input[i][0] == ";"){
@@ -38,7 +39,8 @@ CommandComponent* TreeCreator::build(int start, const tokens& input){
     return buildSub(start, input.size(), input);
 }
 
-CommandComponent* TreeCreator::buildSub(int start, int end, const tokens& input){
+CommandComponent* TreeCreator::buildSub(int start, int end,
+                                        const std::vector<tokens>& input){
     //If we're at the last grouping, build it as a command
     if((end - start - 1) == 0)
         return buildCmd(input[start]);
@@ -65,7 +67,7 @@ CommandComponent* TreeCreator::buildConnector(const std::string& token,
     return connector;
 }
 
-CommandComponent* TreeCreator::buildCmd(const std::vector<std::string>& cmd){
+CommandComponent* TreeCreator::buildCmd(const tokens& cmd){
     std::string cmdName = cmd[0];
     CommandComponent* command;
     if(cmdName == "echo")
@@ -74,6 +76,8 @@ CommandComponent* TreeCreator::buildCmd(const std::vector<std::string>& cmd){
         command = new Cd(cmdName, cmd);
     else if(cmdName == "exit")
         command = new Exit(cmdName, cmd);
+    else if(cmdName = "test")
+        command = new Test(cmdName, cmd);
     else
         command = new BinCmd(cmdName, cmd);
     return command;

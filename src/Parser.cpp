@@ -18,75 +18,86 @@
 
 #include "Parser.h"
 
+class InvalidInput;
+
 Parser::Parser() {}
  
-std::vector<std::vector<std::string> > Parser::parse(const std::string &s){
-    std::vector<std::vector<std::string> > result; //The complete parsed string
-    std::vector<std::string> tempParse; //One command or connector parsed
+std::vector<tokens> Parser::parse(const std::string &s){
+    std::vector<tokens> tkns; //The complete tokenized string
+    tokens tempParse; //One command or connector
     char * cstr = new char [s.size()+1]; //The string as a char array
     std::strcpy(cstr, s.c_str()); 
     char * p = std::strtok(cstr, " "); //The first token
-    bool continueConnect; //Flag for determining if we get a ;
+    std::string delims = "()[];#";
     while(p != NULL){
-        continueConnect = false; //Assume the token isn't a ; first
-        closeParen = false; //Assume the token isnt't a )
-        std::string tmp(p);
-
-        //Check to see if the current token is a ; 
-        if(tmp[tmp.size()-1] == ';'){
-            tmp = tmp.substr(0, tmp.size()-1);
-            continueConnect = true;
-        }
-        
-        if(tmp
-        else if((tmp[0] == '(' || tmp[0] == ')') && tmp.size() == 1)
-            tmpParse.push_back(tmp);
-
-        //Check to see if the current token is the symbolic test operator
-        else if((tmp[0] == '[' || tmp[0] == ']') && tmp.size() == 1)
-            tmpParse.push_back(tmp);
-
-        else if(tmp[0] == '(' || tmp[tmp.size()-1] == ')')
-        //Check to see if the current token is a flag
-        else if(tmp[0] == '-'){
-            //If the string is a list of flags then split them
-            if(tmp.size() >= 2 && tmp[1] == '-') //Check for -- flag
-                tempParse.push_back(tmp);
-            for(unsigned int i = 1; i < tmp.size(); i++){
-                std::string tmpS(1, tmp[i]);
-                tmpS.insert(0, "-");
-                tempParse.push_back(tmpS);
-            }
-         }
-        //Check if the current token is a comment
-        else if(tmp[0] == '#')
-            break;
-        //Push the current token
-        else
-            tempParse.push_back(tmp);
-
-        if(continueConnect)
-            tempParse.push_back(";");
-
+        this->split(p, delims, tempParse);
         //Go to next token
         p = std::strtok(NULL, " ");
     }
     
-    std::vector<std::string> cmdToken;
-    //Create the name of the command or connector for each grouped command
+    tokens cmdToken;
+
+    tokens::iterator tknsItr = tempParse.begin(), testItr;
+    while(tknsItr != tempParse.end()){
+        if(*tknsItr == "["){
+            *tknsItr = "test";
+            tknsItr++;
+            testItr = tknsItr;
+            while(testItr != tempParse.end()){
+                if(testItr == tempParse.end())
+                    throw InvalidInput();
+                if(*testItr == "]"){
+                    tknsItr = tempParse.erase(testItr);
+                    break;
+                }
+                testItr++; tknsItr++;
+            }
+            if(tknsItr != tempParse.end())
+                tknsItr++;
+        }
+    }
+    
     for(unsigned int i = 0; i < tempParse.size(); i++){
         if(tempParse[i] != "||" && tempParse[i] != ";" && tempParse[i] != "&&")
             cmdToken.push_back(tempParse[i]);
         else{
-            result.push_back(cmdToken);
+            tkns.push_back(cmdToken);
             cmdToken.clear();
             cmdToken.push_back(tempParse[i]);
-            result.push_back(cmdToken);
+            tkns.push_back(cmdToken);
             cmdToken.clear();
         }
     }
     //Push the command/connector group to the result
-    result.push_back(cmdToken);
+    tkns.push_back(cmdToken);
     delete[] cstr;
-    return result;
+    return tkns;
+}
+
+void Parser::split(char* pTkn, std::string delims, tokens& tkns){
+    std::string::iterator delimItr;
+    std::string buf;
+
+    for(unsigned int i = 0; pTkn[i] != '\0'; i++){
+        delimItr = std::find(delims.begin(), delims.end(), pTkn[i]);
+        if(delimItr == delims.end()){
+            buf.push_back(pTkn[i]);
+        }
+        else{
+            if(!buf.empty()){
+                tkns.push_back(buf);
+                buf.clear();
+            }
+            if(pTkn[i] == '#')
+                break;
+            std::string delim(1, pTkn[i]);
+            tkns.push_back(delim);
+        }
+    }
+    if(!buf.empty())
+        tkns.push_back(buf);
+}
+
+const std::string InvalidInput::what(std::string& s) const throw(){
+    return "Invalid input error on: " + s;
 }
