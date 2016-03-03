@@ -76,7 +76,7 @@ CommandComponent* TreeCreator::buildCmd(const tokens& cmd){
         command = new Cd(cmdName, cmd);
     else if(cmdName == "exit")
         command = new Exit(cmdName, cmd);
-    else if(cmdName = "test")
+    else if(cmdName == "test")
         command = new Test(cmdName, cmd);
     else
         command = new BinCmd(cmdName, cmd);

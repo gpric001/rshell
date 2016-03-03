@@ -26,6 +26,7 @@
 #include "Exit.h"
 #include "Echo.h"
 #include "Cd.h"
+#include "Test.h"
 #include "BinCmd.h"
  
 typedef std::vector<std::string> tokens; 
