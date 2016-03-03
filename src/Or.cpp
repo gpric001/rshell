@@ -29,13 +29,11 @@ Or::Or(CommandComponent* left, CommandComponent* right)
 int Or::execute()
 {
 	if( childL->execute() == false )
-	{
-	cout << "Or false" << endl;		 
+	{		 
 		return childR->execute();
 	}
 	else
 	{
-	cout << "Or else" << endl;
 		return true;
 	}
 

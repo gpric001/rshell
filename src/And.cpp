@@ -30,7 +30,6 @@ int And::execute()		// executes child nodes with logical AND
 {
 	if ( childL->execute() == true )
 	{ 
-	//cout << "And true" << endl;
 		if ( childR->execute() == false  )
 		{
 			return false;
@@ -42,7 +41,6 @@ int And::execute()		// executes child nodes with logical AND
 	}
 	else
 	{
-	cout << "And False" << endl;
 		return false;
 	}
 
