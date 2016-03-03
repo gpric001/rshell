@@ -25,7 +25,7 @@ class Test : public CommandComponent
 {
 	private:
 
-	pubic:
+	public:
 		Test(const string& c, const vector<string>& a);
 		int execute();
 
