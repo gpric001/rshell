@@ -25,12 +25,13 @@ Built in "exit" command to close shell
 Built in "test" command that tests files, given flag and path
 
 test accepts flags:
+```
 	 "-e" tests for file existence
 
  	 "-d" tests if directory and for existence
 
 	 "-f" tests if file is regular and for existence
-
+```
 test may be used in alternative format: [ -e /directory/file.ext ]
 
 If no flag is specified for test, program will assume -e
