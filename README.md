@@ -1,8 +1,7 @@
 # CS100 Winter 2016 Assignment 3
 
-RSHELL is a custom Bash Shell Terminal
-This program will execute commands as if commands were entered one
-at a time into the bash terminal
+RSHELL is a custom Bash Shell Terminal. This program will execute commands
+as if commands were entered one at a time into the terminal.
 
 
 ##Installation:
