@@ -16,22 +16,22 @@ $ bin/rshell
 
 ##Features:
 	
-Runs executables from bash's /bin directory, such as "ls" and "pwd"
-Built in "echo" command that echo's parameter
-Built in "exit" command to close shell
-Built in "test" command that tests files, given flag and path
-test accepts flags "-e" which tests for file existence
-		   "-d" which tests if directory and for existence
-		   "-f" which tests if file is regular and for existence
-test may be used in alternative format: [ -e /directory/file.ext ]
-If no flag is specified for test, program will assume -e
+-Runs executables from bash's /bin directory, such as "ls" and "pwd"
+-Built in "echo" command that echo's parameter
+-Built in "exit" command to close shell
+-Built in "test" command that tests files, given flag and path
+-test accepts flags "-e" which tests for file existence
+ 		  - "-d" which tests if directory and for existence
+		  - "-f" which tests if file is regular and for existence
+-test may be used in alternative format: [ -e /directory/file.ext ]
+-If no flag is specified for test, program will assume -e
 
-Commmands can but used with single connectors or conenctors chained together
-Connector "&&" will execute command after connector only if command before connector is successful
-Connector "||" will execute command after connector only if command before connector fails
-Connector ";" will simply execute next command following the semicolon
+-Commmands can but used with single connectors or conenctors chained together
+-Connector "&&" will execute command after connector only if command before connector is successful
+-Connector "||" will execute command after connector only if command before connector fails
+-Connector ";" will simply execute next command following the semicolon
 
-Anything after "#" symbol will be considered a comment
+-Anything after "#" symbol will be considered a comment
 
 
 ##Examples:
@@ -53,7 +53,7 @@ string
 
 ##Bugs:
 
-There are files for the "Cd" command that changes directory but it is not implemented
+-There are files for the "Cd" command that changes directory but it is not implemented
 
 
 
