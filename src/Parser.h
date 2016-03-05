@@ -35,6 +35,7 @@ class Parser{
         std::vector<tokens> parse(const std::string&);
         //Breaks a single token into multiple tokens
         void split(char*, std::string, tokens&);
+        tokens sqrBrktHandler(tokens&);
 };
 
 class InvalidInput : public std::exception{

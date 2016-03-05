@@ -24,7 +24,7 @@ Parser::Parser() {}
  
 std::vector<tokens> Parser::parse(const std::string &s){
     std::vector<tokens> tkns; //The complete tokenized string
-    tokens tempParse; //One command or connector
+    tokens tempParse;
     char * cstr = new char [s.size()+1]; //The string as a char array
     std::strcpy(cstr, s.c_str()); 
     char * p = std::strtok(cstr, " "); //The first token
@@ -34,28 +34,10 @@ std::vector<tokens> Parser::parse(const std::string &s){
         //Go to next token
         p = std::strtok(NULL, " ");
     }
-    
-    tokens cmdToken;
+   
+    tempParse = this->sqrBrktHandler(tempParse);
 
-    tokens::iterator tknsItr = tempParse.begin(), testItr;
-    while(tknsItr != tempParse.end()){
-        if(*tknsItr == "["){
-            *tknsItr = "test";
-            tknsItr++;
-            testItr = tknsItr;
-            while(testItr != tempParse.end()){
-                if(testItr == tempParse.end())
-                    throw InvalidInput();
-                if(*testItr == "]"){
-                    tknsItr = tempParse.erase(testItr);
-                    break;
-                }
-                testItr++; tknsItr++;
-            }
-        }
-        if(tknsItr != tempParse.end())
-            tknsItr++;
-    }
+    tokens cmdToken;
     
     for(unsigned int i = 0; i < tempParse.size(); i++){
         if(tempParse[i] != "||" && tempParse[i] != ";" && tempParse[i] != "&&")
@@ -71,12 +53,6 @@ std::vector<tokens> Parser::parse(const std::string &s){
     //Push the command/connector group to the result
     tkns.push_back(cmdToken);
     delete[] cstr;
-    for(unsigned int i = 0; i < tkns.size(); i++){
-        for(unsigned int j = 0; j < tkns[i].size(); j++){
-            std::cout<<tkns[i][j]<<" ";
-        }
-        std::cout<<std::endl;
-    }
     return tkns;
 }
 
@@ -96,11 +72,35 @@ void Parser::split(char* pTkn, std::string delims, tokens& tkns){
             }
             if(pTkn[i] == '#')
                 break;
-            tkns.push_back(delim);
+            buf.push_back(*delimItr);
+            tkns.push_back(buf);
+            buf.clear();
         }
     }
     if(!buf.empty())
         tkns.push_back(buf);
+}
+
+tokens Parser::sqrBrktHandler(tokens& splitInput){
+    tokens::iterator tknsItr = splitInput.begin();
+    tokens result;
+    bool findClosed = false;
+    while(tknsItr != splitInput.end()){
+        if(*tknsItr == "["){
+            result.push_back("test");
+            findClosed = true;
+        }
+        else if(*tknsItr == "]"){
+            if(!findClosed)
+                throw InvalidInput();
+            else
+                findClosed = false;
+        }
+        else
+            result.push_back(*tknsItr);
+        tknsItr++;
+    }
+    return result;
 }
 
 const std::string InvalidInput::what(std::string& s) const throw(){
