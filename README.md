@@ -4,16 +4,16 @@ RSHELL is a custom Bash Shell Terminal
 This program will execute commands as if commands were entered one
 at a time into the bash terminal
 
-```
-##Installation:
 
+##Installation:
+```
 $ git clone  https://github.com/yourusername/rshell.git
 $ cd rshell
 $ git checkout hw2
 $ make
 $ bin/rshell
-
 ```
+
 ##Features:
 	
 Runs executables from bash's /bin directory, such as "ls" and "pwd"
@@ -33,9 +33,9 @@ Connector ";" will simply execute next command following the semicolon
 
 Anything after "#" symbol will be considered a comment
 
-```
-##Examples:
 
+##Examples:
+```
 $ echo one && test -e /test/readme.test
 one
 (true)
@@ -49,8 +49,8 @@ two
 
 $ echo string #this is a comment
 string
-
 ```
+
 ##Bugs:
 
 There are files for the "Cd" command that changes directory but it is not implemented
