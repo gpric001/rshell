@@ -1,0 +1,20 @@
+test /exit.sh
+test -e /exit.sh
+test -f /exit.sh
+cd..
+test -d /test
+cd test
+[ -e /exit.sh ]
+[ -f /exit.sh ]
+cd..
+[ -d /test ]
+cd test
+test /asdf
+test -e /asdf
+test -f /asdf
+test -d /asdf
+[ -e /asdf ]
+[ -f /asdf ]
+[ -d /asdf ]
+
+  
