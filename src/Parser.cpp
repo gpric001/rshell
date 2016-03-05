@@ -52,9 +52,9 @@ std::vector<tokens> Parser::parse(const std::string &s){
                 }
                 testItr++; tknsItr++;
             }
-            if(tknsItr != tempParse.end())
-                tknsItr++;
         }
+        if(tknsItr != tempParse.end())
+            tknsItr++;
     }
     
     for(unsigned int i = 0; i < tempParse.size(); i++){
@@ -71,6 +71,12 @@ std::vector<tokens> Parser::parse(const std::string &s){
     //Push the command/connector group to the result
     tkns.push_back(cmdToken);
     delete[] cstr;
+    for(unsigned int i = 0; i < tkns.size(); i++){
+        for(unsigned int j = 0; j < tkns[i].size(); j++){
+            std::cout<<tkns[i][j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
     return tkns;
 }
 
@@ -90,7 +96,6 @@ void Parser::split(char* pTkn, std::string delims, tokens& tkns){
             }
             if(pTkn[i] == '#')
                 break;
-            std::string delim(1, pTkn[i]);
             tkns.push_back(delim);
         }
     }
