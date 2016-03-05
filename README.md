@@ -6,7 +6,7 @@ This program will execute commands as if commands were entered one
 at a time into the bash terminal
 
 
-Installation:
+# Installation:
 
 $ git clone  https://github.com/yourusername/rshell.git
 $ cd rshell
@@ -15,7 +15,7 @@ $ make
 $ bin/rshell
 
 
-Features:
+# Features:
 	
 Runs executables from bash's /bin directory, such as "ls" and "pwd"
 Built in "echo" command that echo's parameter
@@ -35,7 +35,7 @@ Connector ";" will simply execute next command following the semicolon
 Anything after "#" symbol will be considered a comment
 
 
-Examples:
+# Examples:
 
 $ echo one && test -e /test/readme.test
 one
@@ -52,7 +52,7 @@ $ echo string #this is a comment
 string
 
 
-Bugs:
+#Bugs:
 
 There are files for the "Cd" command that changes directory but it is not implemented
 
