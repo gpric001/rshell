@@ -36,7 +36,7 @@ test may be used in alternative format: [ -e /directory/file.ext ]
 If no flag is specified for test, program will assume -e
 
 
-Commmands can but used with single connectors or conenctors chained together
+Commands can but used with single connectors or connectors chained together
 
 Connector "&&" will execute command after connector only if command before connector is successful
 
@@ -49,7 +49,7 @@ Anything after "#" symbol will be considered a comment
 
 ##Examples:
 ```
-$ echo one && test -e /test/readme.test
+$ echo one && test -e /test/readme.text
 one
 (true)
 
