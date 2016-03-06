@@ -1,2 +1,2 @@
-echo Etest && echo Etest2; NotCmd || echo After; exit
+echo ExitTest1 && echo ExitTest2; NotCmd || echo After; exit
 

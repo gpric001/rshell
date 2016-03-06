@@ -2,7 +2,7 @@
 
 RSHELL is a custom Bash Shell Terminal. This program will execute commands
 as if commands were entered one at a time into the terminal.
-
+That is, one output per line.
 
 ##Installation:
 ```
@@ -71,6 +71,10 @@ $ (echo one && echo two) || echo three
 ##Bugs:
 
 There are files for the "Cd" command that changes directory but it is not implemented
+
+A semicolon at the end of the final command will result in a segmentation fault.
+	Example: echo output1; echo output2;   //Incorrect
+		 echo output1; echo output2    //Correct
 
 
 

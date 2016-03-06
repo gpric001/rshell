@@ -1,5 +1,6 @@
-echo before comment #after comment
-cat Semicolon.h || echo FAIL #nothing && something
-ls -1 # this will test in single column; echo DO NOT DISPLAY
+echo before comment #CommentNoSpace
+echo before comment #Comment with space
+echo before comment #Nospace; ls
+echo before comment #Exec space; ls
 exit
 
