@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./a.out < comment
+./rshell < comment
