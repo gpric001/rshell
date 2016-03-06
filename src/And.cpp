@@ -30,19 +30,22 @@ int And::execute()		// executes child nodes with logical AND
 {
 	if ( childL->execute() == true )
 	{ 
-		if ( childR->execute() == false  )
-		{
-			return false;
-		}
-		else
-		{
+	//	if ( childR->execute() == true || childR->execute() == false )
+	//	{
+cout << "And L TRUE, return true" << endl;
+			childR->execute();
 			return true;
-		}
+	//	}
+		//else if (
+		//{
+		//	return true;
+		//}
 	}
 	else
 	{
+cout << "And ELSE, return false" << endl;
 		return false;
 	}
-
+return 0;
 }
 

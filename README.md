@@ -33,7 +33,7 @@ test accepts flags:
 ```
 test may be used in alternative format: [ -e /directory/file.ext ]
 
-If no flag is specified for test, program will assume -e
+If no flag is specified for test, program will assume "-e"
 
 
 Commands can but used with single connectors or connectors chained together
@@ -45,6 +45,8 @@ Connector "||" will execute command after connector only if command before conne
 Connector ";" will simply execute next command following the semicolon
 
 Anything after "#" symbol will be considered a comment
+
+Parenthesis may also be used to group commands or to alter precedence of connectors
 
 
 ##Examples:
@@ -62,6 +64,8 @@ two
 
 $ echo string #this is a comment
 string
+
+$ (echo one && echo two) || echo three
 ```
 
 ##Bugs:
