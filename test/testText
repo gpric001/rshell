@@ -12,4 +12,4 @@ test -d /asdf
 [ -e /asdf ]
 [ -f /asdf ]
 [ -d /asdf ]
-
+exit
