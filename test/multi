@@ -1,6 +1,9 @@
-echo colon; echo colon2; echo and1 && echo and2; echo this || echo that
+echo colon1; echo colon2;
+echo singleAnd1 && echo singleAnd2;
+echo singleOr1 || echo singleOr2;
+echo chain1; echo chain2; echo chain3 && echo chain4; echo chain5 || echo chain6
 echo first& && echo second& && echo third&
-echo Or1 || echo Or2 || echo Or3
-echo combo1 && echo combo2 || echo combo3 && echo combo4
-echo co1 || echo co2 && echo co3 || echo4
+echo firstOr || echo secondOr || echo thirdOr
+echo AOA1 && echo AOA2 || echo AOA3 && echo AOA4
+echo OAO1 || echo OAO2 && echo OAO3 || echo OAO4
 exit

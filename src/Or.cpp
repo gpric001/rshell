@@ -28,14 +28,22 @@ Or::Or(CommandComponent* left, CommandComponent* right)
 
 int Or::execute()
 {
-	if( childL->execute() == false )
-	{		 
-		return childR->execute();
+	if( childL->execute() == true )
+	{
+cout << "Or L TRUE, return true" << endl;		 
+		return true;
+	}
+	else if ( childL->execute() == false && childR->execute() == true )	
+	{
+cout << "Or L FALSE, R TRUE, return true" << endl;
+		return true;
 	}
 	else
 	{
-		return true;
+cout << "OR ELSE, return false" << endl;
+		return false;// childR->execute();
 	}
 
 }
+
 

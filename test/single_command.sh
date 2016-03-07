@@ -1,5 +1,5 @@
 #!/bin/sh
 
-./a.out < single
+./rshell < single
 
 
