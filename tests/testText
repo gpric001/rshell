@@ -1,15 +1,15 @@
-test /exit.sh
-test -e /exit.sh
-test -f /exit.sh
-test -d /test
-[ -e /exit.sh ]
-[ -f /exit.sh ]
-[ -d /test ]
-test /asdf
-test -e /asdf
-test -f /asdf
-test -d /asdf
-[ -e /asdf ]
-[ -f /asdf ]
-[ -d /asdf ]
+test exit.sh
+test -e exit.sh
+test -f exit.sh
+test -d test
+[ -e exit.sh ]
+[ -f exit.sh ]
+[ -d test ]
+test asdf
+test -e asdf
+test -f asdf
+test -d asdf
+[ -e asdf ]
+[ -f asdf ]
+[ -d asdf ]
 exit
