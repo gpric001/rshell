@@ -38,10 +38,15 @@ int Or::execute()
 //cout << "Or L FALSE, R TRUE, return true" << endl;
 		return true;
 	}
+	else if ( childL->execute() == false && childR->execute() == false)
+	{
+//cout << "OR L FaLSE, R FALSE, return false" << endl;
+		return false;// childR->execute();
+	}
 	else
 	{
-//cout << "OR ELSE, return false" << endl;
-		return false;// childR->execute();
+//cout << "ELSE, return false" << endl;
+		return false;
 	}
 
 }

@@ -34,14 +34,15 @@ Test::Test(const string& c, const vector<string>& a)
 
 int Test::execute()
 {
-	string dotAdd = ".";
+	//string dotAdd = ".";
 	struct stat buf;
 	
 	if( args.size() == 2)
 	{
 	string temp1 = args[1];
-	dotAdd.append(temp1);
-	const char* path = dotAdd.c_str();
+	//dotAdd.append(temp1);
+	//const char* path = dotAdd.c_str();
+	const char* path = temp1.c_str();	
 
 		if( stat( path, &buf ) == 0 )
 		{
@@ -57,8 +58,9 @@ int Test::execute()
 	else if ( args.size() == 3)
 	{
 	string temp2 = args[2];
-	dotAdd.append(temp2);
-	const char* path = dotAdd.c_str();
+	//dotAdd.append(temp2);
+	//const char* path = dotAdd.c_str();
+	const char* path = temp2.c_str();
 
 	stat( path, &buf );
 

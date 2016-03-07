@@ -66,7 +66,9 @@ int BinCmd::execute()
 			{
 				perror("Error - Execution Failed");
 				//return false;				
-				exit(1);	
+	
+				// errno = 1; // Or case
+				exit(1);
 			}
 		}
 		else
@@ -79,15 +81,14 @@ int BinCmd::execute()
 			}
     		}	
 	}
+
 	
 	if( errno == 0)		// return success of failure
 	{
-
 		return false;
 	}
 	else
 	{
-
 		return true;
 	}
 
