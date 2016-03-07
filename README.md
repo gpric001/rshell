@@ -80,5 +80,7 @@ A semicolon at the end of the final command will result in a segmentation fault.
 
 			echo output1; echo output2    //Correct
 
+If a failed command is run before the "||" connector, a failed execution message will be printed twice.
+
 Warning: not using proper format for input may result in errors.
 
