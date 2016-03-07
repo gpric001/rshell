@@ -65,7 +65,9 @@ two
 $ echo string #this is a comment
 string
 
-$ (echo one && echo two) || echo three
+$ (echo one && echo two) || (echo three && echo four)
+one
+two
 ```
 
 ##Bugs:
@@ -73,8 +75,10 @@ $ (echo one && echo two) || echo three
 There are files for the "Cd" command that changes directory but it is not implemented
 
 A semicolon at the end of the final command will result in a segmentation fault.
-	Example: echo output1; echo output2;   //Incorrect
-		 echo output1; echo output2    //Correct
 
+	Example:	echo output1; echo output2;   //Incorrect
 
+			echo output1; echo output2    //Correct
+
+Warning: not using proper format for input may result in errors.
 
