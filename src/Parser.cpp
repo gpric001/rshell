@@ -17,7 +17,8 @@
     This program comes with ABSOLUTELY NO WARRANTY.     */
 
 #include "Parser.h"
-#include "InvalidInputException.h"
+
+class InvalidInputException;
 
 Parser::Parser() {}
  
@@ -29,6 +30,8 @@ std::vector<tokens> Parser::parse(const std::string &s){
     char * p = std::strtok(cstr, " "); //The first token
     std::string delims = "()[];#";
     while(p != NULL){
+        if(p[0] == '#')
+            break;
         this->split(p, delims, tempParse);
         //Go to next token
         p = std::strtok(NULL, " ");
@@ -68,13 +71,13 @@ void Parser::split(char* pTkn, std::string delims, tokens& tkns){
         if(delimItr == delims.end()){
             buf.push_back(pTkn[i]);
         }
+        else if((pTkn[i] == '[' || pTkn[i] == ']') && (i != 0 || pTkn[i+1] != '\0'))
+            throw InvalidInputException();
         else{
             if(!buf.empty()){
                 tkns.push_back(buf);
                 buf.clear();
             }
-            if(pTkn[i] == '#')
-                break;
             buf.push_back(*delimItr);
             tkns.push_back(buf);
             buf.clear();

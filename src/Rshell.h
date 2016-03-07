@@ -23,6 +23,7 @@
 #include <string>
 #include "Parser.h"
 #include "TreeCreator.h"
+#include "InvalidInputException.h"
  
 class Rshell {
     public:

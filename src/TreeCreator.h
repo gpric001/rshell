@@ -28,6 +28,7 @@
 #include "Cd.h"
 #include "Test.h"
 #include "BinCmd.h"
+#include "InvalidInputException.h"
  
 typedef std::vector<std::string> tokens; 
 class TreeCreator{
