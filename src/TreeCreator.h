@@ -35,11 +35,13 @@ class TreeCreator{
         TreeCreator();
         CommandComponent* create(const std::vector<tokens>&); //Entry to create a tree of commands/connectors
     private:
-        CommandComponent* build(int, const std::vector<tokens>& input); //Builds the top level of the tree giving priority to the ; connector
-        CommandComponent* buildSub(int, int, const std::vector<tokens>& input); //Buils a subtree on the left and right of a ; connector
+        CommandComponent* build(unsigned int, unsigned int, const std::vector<tokens>& input); //Builds the top level of the tree giving priority to the ; connector
+        CommandComponent* buildSub(unsigned int, unsigned int, const std::vector<tokens>& input); //Buils a subtree on the left and right of a ; connector
         CommandComponent* buildConnector(const std::string& token,
                                          CommandComponent* left,
                                          CommandComponent* right); //Builds a connector
         CommandComponent* buildCmd(const tokens& input); //Builds a command
+        std::vector<tokens> reverse(const std::vector<tokens>&);
+        bool balancedParens(const std::vector<tokens>& input); //Checks if parenthesis are balanced
 }; 
 #endif

@@ -17,8 +17,7 @@
     This program comes with ABSOLUTELY NO WARRANTY.     */
 
 #include "Parser.h"
-
-class InvalidInput;
+#include "InvalidInputException.h"
 
 Parser::Parser() {}
  
@@ -40,18 +39,22 @@ std::vector<tokens> Parser::parse(const std::string &s){
     tokens cmdToken;
     
     for(unsigned int i = 0; i < tempParse.size(); i++){
-        if(tempParse[i] != "||" && tempParse[i] != ";" && tempParse[i] != "&&")
+        if(tempParse[i] != "||" && tempParse[i] != ";" && tempParse[i] != "&&"
+           && tempParse[i] != "(" && tempParse[i] != ")")
             cmdToken.push_back(tempParse[i]);
         else{
-            tkns.push_back(cmdToken);
-            cmdToken.clear();
+            if(!cmdToken.empty()){
+                tkns.push_back(cmdToken);
+                cmdToken.clear();
+            }
             cmdToken.push_back(tempParse[i]);
             tkns.push_back(cmdToken);
             cmdToken.clear();
         }
     }
     //Push the command/connector group to the result
-    tkns.push_back(cmdToken);
+    if(!cmdToken.empty())
+        tkns.push_back(cmdToken);
     delete[] cstr;
     return tkns;
 }
@@ -92,7 +95,7 @@ tokens Parser::sqrBrktHandler(tokens& splitInput){
         }
         else if(*tknsItr == "]"){
             if(!findClosed)
-                throw InvalidInput();
+                throw InvalidInputException();
             else
                 findClosed = false;
         }
@@ -101,8 +104,4 @@ tokens Parser::sqrBrktHandler(tokens& splitInput){
         tknsItr++;
     }
     return result;
-}
-
-const std::string InvalidInput::what(std::string& s) const throw(){
-    return "Invalid input error on: " + s;
 }
