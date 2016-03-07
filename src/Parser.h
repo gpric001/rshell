@@ -24,7 +24,6 @@
 #include <vector>
 #include <iterator>
 #include <cstring>
-#include <exception>
 #include <algorithm>
 
 typedef std::vector<std::string> tokens;
@@ -36,9 +35,5 @@ class Parser{
         //Breaks a single token into multiple tokens
         void split(char*, std::string, tokens&);
         tokens sqrBrktHandler(tokens&);
-};
-
-class InvalidInput : public std::exception{
-    const std::string what(std::string&) const throw();
 };
 #endif
