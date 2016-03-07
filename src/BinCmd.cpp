@@ -65,14 +65,18 @@ int BinCmd::execute()
 			if( chkExe == -1 )
 			{
 				perror("Error - Execution Failed");
-				exit(0);	
+				//return false;				
+				exit(1);	
 			}
 		}
 		else
 		{
 			int chkWait = ( wait(NULL) );
 			if( chkWait == -1)
+			{
 				perror("Error - Wait Failed");
+				//return false;
+			}
     		}	
 	}
 	

@@ -1,9 +1,13 @@
-echo colon1; echo colon2;
-echo singleAnd1 && echo singleAnd2;
-echo singleOr1 || echo singleOr2;
+echo colon1; echo colon2
+echo singleAnd1 && echo singleAnd2
+echo singleOr1 || echo singleOr2
 echo chain1; echo chain2; echo chain3 && echo chain4; echo chain5 || echo chain6
 echo first& && echo second& && echo third&
 echo firstOr || echo secondOr || echo thirdOr
 echo AOA1 && echo AOA2 || echo AOA3 && echo AOA4
 echo OAO1 || echo OAO2 && echo OAO3 || echo OAO4
+echo FAILS
+ls -j && echo FAIL
+asdf || echo SUCCESS
+echo first && ls -j
 exit

@@ -73,7 +73,9 @@ $ (echo one && echo two) || echo three
 There are files for the "Cd" command that changes directory but it is not implemented
 
 A semicolon at the end of the final command will result in a segmentation fault.
+
 	Example: echo output1; echo output2;   //Incorrect
+
 		 echo output1; echo output2    //Correct
 
 
