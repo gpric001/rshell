@@ -25,6 +25,7 @@
 #include <iterator>
 #include <cstring>
 #include <algorithm>
+#include "InvalidInputException.h"
 
 typedef std::vector<std::string> tokens;
 class Parser{

@@ -1,5 +1,6 @@
 #include "InvalidInputException.h"
 
-const std::string InvalidInputException::what(std::string s) const throw(){
-    std::cout<<"\nError, invalid input on: " + s<<std::endl;
+const char* InvalidInputException::what() const throw(){
+    const char* errmsg = "Error, invalid input";
+    return errmsg;
 }

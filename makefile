@@ -2,7 +2,7 @@ CC=g++
 CFLAGS=-Wall -Werror -ansi -pedantic
 SOURCES=
 OBJECTS=And.o BinCmd.o Cd.o Echo.o Exit.o main.o Or.o Parser.o Rshell.o \
-        Semicolon.o TreeCreator.o Test.o
+        Semicolon.o TreeCreator.o Test.o InvalidInputException.o
 VPATH=src
 all : rshell
 rshell : $(OBJECTS)
@@ -25,15 +25,17 @@ main.o : main.cpp Rshell.h Parser.h TreeCreator.h
 	$(CC) -c $(CFLAGS) $^
 Or.o : Or.cpp Or.h Connector.h
 	$(CC) -c $(CFLAGS) $^
-Parser.o : Parser.cpp Parser.h
+Parser.o : Parser.cpp Parser.h InvalidInputException.h
 	$(CC) -c $(CFLAGS) $^
-Rshell.o : Rshell.cpp Rshell.h Parser.h TreeCreator.h
+Rshell.o : Rshell.cpp Rshell.h Parser.h TreeCreator.h InvalidInputException.h
 	$(CC) -c $(CFLAGS) $^
 Semicolon.o : Semicolon.cpp Semicolon.h Connector.h
 	$(CC) -c $(CFLAGS) $^
 TreeCreator.o : TreeCreator.cpp TreeCreator.h CommandComponent.h \
                 Or.h And.h Semicolon.h Exit.h Echo.h Cd.h BinCmd.h \
-		Test.h
+		Test.h InvalidInputException.h
+	$(CC) -c $(CFLAGS) $^
+InvalidInputException.o : InvalidInputException.cpp InvalidInputException.h
 	$(CC) -c $(CFLAGS) $^
 clean :
 	rm -R bin

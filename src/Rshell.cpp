@@ -20,6 +20,8 @@
 
 #include "Rshell.h"
 
+class InvalidInputException;
+
 Rshell::Rshell() {}
 
 void Rshell::setParser(Parser* p){
@@ -39,8 +41,13 @@ void Rshell::run(){
         std::getline(std::cin, userInput); //Get user input
         //If the user input isn't empty, then parse user input,
         //build the tree, and execute the top node of the tree.
-        if(!(userInput.empty() || userInput[0] == '#'))
-            tc->create(parser->parse(userInput))->execute();
+        try{
+            if(!(userInput.empty() || userInput[0] == '#'))
+                tc->create(parser->parse(userInput))->execute();
+        }
+        catch(InvalidInputException& e){
+            std::cout<<e.what()<<std::endl;
+        }
     }
 }
 

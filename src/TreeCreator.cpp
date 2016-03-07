@@ -17,8 +17,7 @@
     This program comes with ABSOLUTELY NO WARRANTY.     */
 
 #include "TreeCreator.h"
-#include "InvalidInputException.h"
-#include <iostream>
+class InvalidInputException;
 
 TreeCreator::TreeCreator() {}
 
@@ -33,6 +32,8 @@ CommandComponent* TreeCreator::build(unsigned int start, unsigned int end,
     //Searches for a ; connector, if found then it builds the left subtree
     //And recursively trys to build the right subtree up to the next ; connector
     for(unsigned int i = start; i < end; i++){
+        if(input[i][0] == "(")
+            break;
         if(input[i][0] == ";"){
             CommandComponent* left = buildSub(start, i, input);
             CommandComponent* right = build(i+1, end, input);
