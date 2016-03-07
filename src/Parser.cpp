@@ -50,9 +50,11 @@ std::vector<tokens> Parser::parse(const std::string &s){
                 tkns.push_back(cmdToken);
                 cmdToken.clear();
             }
-            cmdToken.push_back(tempParse[i]);
-            tkns.push_back(cmdToken);
-            cmdToken.clear();
+            if(!(tempParse[i] == ";" && i == (tempParse.size() - 1))){
+                cmdToken.push_back(tempParse[i]);
+                tkns.push_back(cmdToken);
+                cmdToken.clear();
+            }
         }
     }
     //Push the command/connector group to the result
