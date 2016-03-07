@@ -45,7 +45,6 @@ CommandComponent* TreeCreator::build(unsigned int start, unsigned int end,
 
 CommandComponent* TreeCreator::buildSub(unsigned int start, unsigned int end,
                                         const std::vector<tokens>& input){
-
     if(input[start][0] == "("){
         int parenCtnr = 1;
         unsigned int parenEnd = 0;
@@ -57,7 +56,14 @@ CommandComponent* TreeCreator::buildSub(unsigned int start, unsigned int end,
                 break;
             }
         }
-        return build(start + 1, parenEnd, input);
+        CommandComponent* left = build(start + 1, parenEnd, input);
+        if(end == (parenEnd + 1))
+            return left;
+        else{
+            std::string connectorToken = input[parenEnd+1][0];
+            CommandComponent* right = build(parenEnd + 2, end, input);
+            return buildConnector(connectorToken, right, left);
+        }
     }
     else{ 
         //If we're at the last grouping, build it as a command
@@ -67,7 +73,6 @@ CommandComponent* TreeCreator::buildSub(unsigned int start, unsigned int end,
         //Otherwise recursively build the connector and commands
         std::string connectorToken = input[start+1][0];
         CommandComponent* left = buildCmd(input[start]);
-        //std::cout<<"3: "<<input[start+2][0]<<std::endl;
         CommandComponent* right = buildSub(start+2, end, input);
         return buildConnector(connectorToken, right, left);
     }
@@ -102,7 +107,6 @@ CommandComponent* TreeCreator::buildCmd(const tokens& cmd){
         command = new Test(cmdName, cmd);
     else
         command = new BinCmd(cmdName, cmd);
-    std::cout<<"Build complete"<<std::endl;
     return command;
 }
 
