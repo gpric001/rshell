@@ -1,11 +1,12 @@
- ls -1
- ls -1 -a
- echo fish
- cat Or.h
- pwd
- ps
- date
- grep -i public Connector.h 
- ls -1h
- cat -n And.h Cd.h
- exit
+ls -1
+ls -1 -a
+echo fish
+cat paraText
+pwd
+ps
+date
+grep -i AOA multi
+ls -1
+cat -n exit.sh single_command.sh
+exit
+

@@ -1,2 +1,0 @@
-echo ExitTest1 && echo ExitTest2; NotCmd || echo After; exit
-

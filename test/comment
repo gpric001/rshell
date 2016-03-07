@@ -1,6 +1,0 @@
-echo before comment #CommentNoSpace
-echo before comment #Comment with space
-echo before comment #Nospace; ls
-echo before comment #Exec space; ls
-exit
-
